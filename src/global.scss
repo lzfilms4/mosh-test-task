@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Bebas Neue";
+    font-style: normal;
+    src: url("/fonts/BebasNeue-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Gilroy;
+    font-style: normal;
+    src: url("/fonts/Gilroy-Light.woff") format("woff");
+}
+
+:root {
+    --color-white: #fdfdfd;
+    --color-btn-border: #57544e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html,
+#app,
+#gallery-block {
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100vh;
+
+    color: #fff;
+
+    background: #0a0a0a;
+}

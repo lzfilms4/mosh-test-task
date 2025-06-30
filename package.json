@@ -1,0 +1,21 @@
+{
+    "name": "mosh-test-task",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "lint:style": "stylelint \"**/*.{scss,css}\" --fix"
+    },
+    "devDependencies": {
+        "sass": "^1.89.2",
+        "stylelint": "^16.21.0",
+        "stylelint-config-clean-order": "^7.0.0",
+        "stylelint-config-standard-scss": "^15.0.1",
+        "stylelint-scss": "^6.12.1",
+        "typescript": "~5.8.3",
+        "vite": "^7.0.0"
+    }
+}
