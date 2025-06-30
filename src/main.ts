@@ -36,15 +36,12 @@ function updateActive(newIndex: number, oldIndex: number) {
 }
 
 function initialRender() {
-    const galleryBlock =
-        document.querySelector<HTMLDivElement>("#gallery-block")
-    if (!galleryBlock) return
-    const positions = getPositions(items.length, window.innerHeight)
+    const orbitInner = document.querySelector<HTMLDivElement>("#inner")
+    const orbit = document.querySelector<HTMLDivElement>("#orbit")
+    if (!orbitInner || !orbit) return
+    const positions = getPositions(items.length, orbit.clientHeight)
 
-    galleryBlock.innerHTML = `
-    <div class="advantages">
-      <div class="advantages__orbit"></div>
-      <div class="advantages__inner">
+    orbitInner.innerHTML = `
         ${items
             .map((item, i) => {
                 const { x, y } = positions[i]
@@ -61,14 +58,8 @@ function initialRender() {
                 `
             })
             .join("")}
-      </div>
-      <a href="https://github.com/lzfilms4" target="_blank" class="advantages__link">
-          ВЫБРАТЬ КВАРТИРУ
-      </a>
-    </div>
-  `
 
-    const orbitInner = galleryBlock.querySelector(".advantages__inner")
+  `
     itemEls = Array.from(
         orbitInner?.querySelectorAll(".advantages__inner-item") || []
     ) as HTMLElement[]
@@ -94,7 +85,9 @@ if (galleryBlock) {
 
 // Update positions for window resize
 function updatePositions() {
-    const positions = getPositions(items.length, window.innerHeight)
+    const orbit = document.querySelector<HTMLDivElement>("#orbit")
+    if (!orbit) return
+    const positions = getPositions(items.length, orbit.clientHeight)
     itemEls.forEach((el, i) => {
         el.style.left = positions[i].x + "px"
         el.style.top = positions[i].y + "px"
